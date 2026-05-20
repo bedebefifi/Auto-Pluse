@@ -1,38 +1,50 @@
+import React from 'react';
+
 const Hero = () => {
   return (
     <section className="hero" style={{ 
-      minHeight: '80vh', 
+      minHeight: '90vh', 
       display: 'flex', 
-      flexDirection: 'column', 
-      justifyContent: 'center', 
       alignItems: 'center',
-      textAlign: 'center',
-      background: 'radial-gradient(circle at center, #1e293b 0%, #0f172a 100%)',
-      borderBottom: '1px solid rgba(226, 232, 240, 0.1)'
+      background: 'radial-gradient(circle at 50% 30%, var(--bg-gradient-center) 0%, var(--bg-main) 70%)',
+      position: 'relative',
+      overflow: 'hidden'
     }}>
-      <div className="section-container">
-        <h1 className="animate-slide-up delay-1" style={{ 
-          fontSize: 'clamp(2.5rem, 8vw, 4.5rem)', 
+      {/* Декоративное свечение на фоне */}
+      <div style={{
+        position: 'absolute', top: '-10%', left: '50%', transform: 'translateX(-50%)',
+        width: '600px', height: '400px', background: 'var(--accent)', 
+        filter: 'blur(150px)', opacity: 0.05, borderRadius: '50%', zIndex: 0
+      }} />
+
+      <div className="section-container" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
+        <h1 className="animate-fade-up delay-1" style={{ 
+          fontSize: 'clamp(2.5rem, 8vw, 5rem)', 
           fontWeight: 800, 
-          marginBottom: '1.5rem',
           lineHeight: 1.1,
-          letterSpacing: '-0.02em'
+          marginBottom: '1.5rem'
         }}>
           Надежный сервис для <br />
-          <span style={{ color: 'var(--accent-10)' }}>вашего автомобиля</span>
+          <span style={{ 
+            background: 'linear-gradient(to right, #F59E0B, #FCD34D)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent'
+          }}>
+            вашего автомобиля
+          </span>
         </h1>
-        <p className="animate-slide-up delay-2" style={{ 
-          fontSize: 'clamp(1.1rem, 3vw, 1.5rem)', 
-          maxWidth: '800px', 
-          margin: '0 auto 2.5rem',
-          color: 'rgba(226, 232, 240, 0.8)'
+        <p className="animate-fade-up delay-2" style={{ 
+          fontSize: 'clamp(1.1rem, 2vw, 1.25rem)', 
+          color: 'var(--text-secondary)',
+          maxWidth: '600px', 
+          margin: '0 auto 3rem'
         }}>
-          Профессиональное обслуживание и ремонт легковых авто в «Авто Плюс». 
-          Качество дилерского центра по доступной цене.
+          Профессиональное обслуживание и ремонт легковых авто. 
+          Качество дилерского центра без переплат и скрытых услуг.
         </p>
-        <div className="animate-slide-up delay-3" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <a href="#booking" className="btn-primary">Записаться на сервис</a>
-          <a href="#prices" className="btn-secondary">Смотреть цены</a>
+        <div className="animate-fade-up delay-3" style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+          <a href="#booking" className="btn btn-primary">Записаться на сервис</a>
+          <a href="#benefits" className="btn btn-secondary">Подробнее</a>
         </div>
       </div>
     </section>
